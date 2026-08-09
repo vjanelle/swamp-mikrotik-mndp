@@ -1,6 +1,6 @@
 manifestVersion: 1
 name: "@randomfrequency/mikrotik-mndp"
-version: "2026.08.08.2"
+version: "2026.08.08.3"
 description: "WinBox-style MikroTik Neighbor Discovery Protocol discovery for Swamp"
 repository: "https://github.com/vjanelle/swamp-mikrotik-mndp"
 models:

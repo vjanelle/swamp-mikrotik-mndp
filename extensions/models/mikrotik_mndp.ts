@@ -66,6 +66,11 @@ function readIpv4(
   return Array.from(packet.subarray(start, start + length)).join(".");
 }
 
+/**
+ * Decode the little-endian MNDP header and big-endian typed TLV payload.
+ *
+ * Invalid or truncated packets return null so unrelated UDP traffic is ignored.
+ */
 export function readTlvs(
   packet: Uint8Array,
 ): Omit<Neighbor, "sourceAddress" | "discoveredAt"> | null {
@@ -196,9 +201,10 @@ async function discover(
   });
 }
 
+/** Swamp model that performs WinBox-compatible read-only MNDP discovery. */
 export const model = {
   type: "@randomfrequency/mikrotik-mndp",
-  version: "2026.08.08.1",
+  version: "2026.08.08.2",
   resources: {
     neighbor: {
       description: "A MikroTik neighbor discovered through MNDP",
